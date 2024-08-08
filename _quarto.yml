@@ -1,5 +1,6 @@
 project:
   title: "presentation-tugis2024"
+  output-dir: docs
 
 editor: visual
 
