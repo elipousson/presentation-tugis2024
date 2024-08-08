@@ -28,7 +28,6 @@ execute:
 ![](files/FY9095_Baltimore-Development-Program_Map-Folded.jpeg)
 :::
 
-
 ::: footer
 Baltimore's Development Program, FY 1990-1995.
 :::
@@ -39,6 +38,15 @@ Today, I'm talking about the Baltimore City Capital Improvement Report.
 
 Baltimore City has been making reports for the city's capital improvement program for a very long time.
 
+:::
+
+------------------------------------------------------------------------
+
+
+![](files/Baltimore-Development-Program-Reports.jpeg){fig-align="center"}
+
+::: footer
+Development Program reports in the Baltimore City Department of Planning "library" 
 :::
 
 ------------------------------------------------------------------------
@@ -62,7 +70,7 @@ Database for manging capital projects with limited connections to the City's acc
 
 ------------------------------------------------------------------------
 
-![](files/2024-07-24_Adaptive-Planning.png)
+![](files/2024-07-24_Adaptive-Planning.png){fig-align="center"}
 
 ::: footer
 
@@ -94,7 +102,7 @@ Council in June of each year as the Capital Budget
 Most people care about these questions:
   
   - How much money do we need? And how much do we have?
-  - How much money have we spent?
+  - How much money have we budgeted and spent?
   - How and where are we spending money?
   
 We can't make things up and we want to get the answers right. We need to know where *all* the numbers come from.
@@ -203,7 +211,7 @@ Adapted from [R Markdown from RStudio](https://rmarkdown.rstudio.com/lesson-1.ht
 ------------------------------------------------------------------------
   
   
-![](files/allison-horst_rmarkdown-graphic.png)
+![](files/allison-horst_rmarkdown-graphic.png){fig-align="center"}
 
 ::: footer
 Illustrated by [Allison Horst](https://allisonhorst.com/).
@@ -211,7 +219,7 @@ Illustrated by [Allison Horst](https://allisonhorst.com/).
 
 ------------------------------------------------------------------------
   
-![](files/cetinkaya-rundel-lowndes-quarto-keynote_schematic-graphic.png)
+![](files/cetinkaya-rundel-lowndes-quarto-keynote_schematic-graphic.png){fig-align="center"}
 
 ::: footer
 Artwork from ["Hello, Quarto"](https://mine.quarto.pub/hello-quarto/) keynote by Julia Lowndes and Mine Çetinkaya-Rundel, presented at RStudio Conference 2022. Illustrated by [Allison Horst](https://allisonhorst.com/).
@@ -220,7 +228,7 @@ Artwork from ["Hello, Quarto"](https://mine.quarto.pub/hello-quarto/) keynote by
 ## Quarto extensions
 
 
-![](files/quarto-extensions.png)
+![](files/quarto-extensions.png){fig-align="center"}
 
 ::: footer
 
@@ -261,6 +269,7 @@ Using targets is like "writing down a recipe that defines how the source code sh
 :::
   
 :::
+
 ------------------------------------------------------------------------
 
 ![](files/2024-08-08_targets-glimpse.png)
@@ -285,13 +294,15 @@ From [Building reproducible analytical pipelines with R](https://raps-with-r.dev
 
 Why are reproducible analytical pipelines important?
 
->In a nutshell, it is all about making our existing data processes more automated, reproducible, transparent, maintainable, efficient and robust. This improves the lives of our data analysts, as they ultimately have to do less manual work and can focus more on doing analysis.
+>In a nutshell, it is all about making our existing data processes more automated, reproducible, transparent, maintainable, efficient and robust. This **improves the lives of our data analysts**, as they ultimately have to do less manual work and can focus more on doing analysis.
 
 ::: footer
-From [Why we’re getting our data teams to RAP](https://digital.nhs.uk/blog/data-points-blog/2023/why-were-getting-our-data-teams-to-rap) by Alistair Bullward and Sam Hollings with NHS Digital
+From [Why we’re getting our data teams to RAP](https://digital.nhs.uk/blog/data-points-blog/2023/why-were-getting-our-data-teams-to-rap) by Alistair Bullward and Sam Hollings with NHS Digital (emphasis added)
 :::
 
-## What are the elements of reproducible pipelines?
+::: notes
+
+What are the elements of reproducible pipelines?
 
 - minimising manual steps through automation 
 - using open-source languages to improve portability and reduce license fees 
@@ -299,10 +310,6 @@ From [Why we’re getting our data teams to RAP](https://digital.nhs.uk/blog/dat
 - using code version-control software (for example, Git) to improve auditability, change tracking and disaster recovery 
 - publishing the code externally to improve transparency and reuse 
 - documenting the code in-situ through comments and markdown files, to improve accessibility and understanding
-
-::: footer
-
-From [Why we’re getting our data teams to RAP](https://digital.nhs.uk/blog/data-points-blog/2023/why-were-getting-our-data-teams-to-rap) by Alistair Bullward and Sam Hollings with NHS Digital
 
 :::
 
