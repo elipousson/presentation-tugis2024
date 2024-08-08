@@ -495,12 +495,13 @@
 
 <section id="the-questions-people-care-about" class="title-slide slide level2 center" data-number="3">
 <h2><span class="header-section-number">3</span> The questions people care about</h2>
-<p>And here real questions that most people care about:</p>
+<p>Most people care about these questions:</p>
 <ul>
 <li>How much money do we need? And how much do we have?</li>
 <li>How much money have we spent?</li>
 <li>How and where are we spending money?</li>
 </ul>
+<p>We can’t make things up and we want to get the answers right. We need to know where <em>all</em> the numbers come from.</p>
 <aside class="notes">
 <p>Ultimate goal is more transparency, better integration with other city data management systems, and documented process for analysis and reporting of all elements of the capital planning and project implementation process.</p>
 <style type="text/css">
@@ -534,7 +535,7 @@
 </div>
 </div></div>
 <div class="footer">
-<p>The 507-page report includes 14 agencies, 444 projects, 229 maps, and around 900 tables.</p>
+<p>The <a href="https://city-of-baltimore.github.io/baltimoreCIP-FY2530">507-page report</a> includes 14 agencies, 444 projects, 229 maps, and around 900 tables.</p>
 </div>
 </section>
 <section class="slide level4">
@@ -546,6 +547,9 @@
 </div><div class="column" style="width:60%;">
 <p><img data-src="files/cip-report_projects-map.png"></p>
 </div></div>
+<div class="footer">
+<p>P.S. Check out <a href="https://github.com/elipousson/tigris-basemap">tigris-basemap</a> to see how the basemaps are made.</p>
+</div>
 </section></section>
 <section id="making-reproducible-data-driven-documents" class="title-slide slide level2 center" data-number="5">
 <h2><span class="header-section-number">5</span> Making reproducible, data-driven documents</h2>
@@ -561,10 +565,10 @@
 <section id="r" class="title-slide slide level2 center" data-number="6">
 <h2><span class="header-section-number">6</span> R</h2>
 <div class="columns">
-<div class="column" style="width:50%;">
+<div class="column" style="width:60%;">
 <p>The <a href="https://www.tidyverse.org/">tidyverse</a> is essential. But ggplot2 and dplyr are not the only R packages!</p>
 <p>The new <a href="https://github.com/R-ArcGIS">arcgis package family</a> is a set of ESRI-supported, open-source R packages that can reading feature and image layers, publish and edit layers, geocode address data, and much more.</p>
-</div><div class="column" style="width:50%;">
+</div><div class="column" style="width:40%;">
 <p><img data-src="files/arcgis-logo.svg"></p>
 </div></div>
 </section>
@@ -624,6 +628,9 @@ Projected CRS: WGS 84 / Pseudo-Mercator
 <section id="quarto-extensions" class="title-slide slide level2 center" data-number="8">
 <h2><span class="header-section-number">8</span> Quarto extensions</h2>
 
+<img data-src="files/quarto-extensions.png" class="r-stretch"><div class="footer">
+<p><a href="https://quarto.org/docs/extensions/">Quarto extensions</a> are “a powerful way to modify and extend the behavior of Quarto.” I learned (a little) LaTeX to write a custom format extension for this project!</p>
+</div>
 </section>
 <section class="slide level4">
 
@@ -636,8 +643,13 @@ Projected CRS: WGS 84 / Pseudo-Mercator
 <section>
 <section id="targets" class="title-slide slide level2 center" data-number="9">
 <h2><span class="header-section-number">9</span> targets</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
 <p><code>{targets}</code> is an R package (part of a family of related R packages) that works as a “build automation tool”</p>
 <p>Using targets is like “writing down a recipe that defines how the source code should be ‘cooked’ into… a report, a cleaned dataset or any data product” (<a href="https://raps-with-r.dev/">Rodrigues 2023</a>)</p>
+</div><div class="column" style="width:40%;">
+<p><img data-src="files/targets-logo.svg"></p>
+</div></div>
 </section>
 <section class="slide level4">
 
@@ -664,12 +676,10 @@ Projected CRS: WGS 84 / Pseudo-Mercator
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-</section>
-<section class="slide level4">
-
 </section></section>
 <section id="i-reproducible-pipelines" class="title-slide slide level2 center" data-number="10">
 <h2><span class="header-section-number">10</span> I ❤️ reproducible pipelines</h2>
+<p>Why are reproducible analytical pipelines important?</p>
 <blockquote>
 <p>In a nutshell, it is all about making our existing data processes more automated, reproducible, transparent, maintainable, efficient and robust. This improves the lives of our data analysts, as they ultimately have to do less manual work and can focus more on doing analysis.</p>
 </blockquote>
@@ -686,13 +696,18 @@ Projected CRS: WGS 84 / Pseudo-Mercator
 <li>peer reviewing code to improve quality and reliability</li>
 <li>using code version-control software (for example, Git) to improve auditability, change tracking and disaster recovery</li>
 <li>publishing the code externally to improve transparency and reuse</li>
-<li>documenting the code in-situ through comments and mark-down files, to improve accessibility and understanding ::: footer From <a href="https://digital.nhs.uk/blog/data-points-blog/2023/why-were-getting-our-data-teams-to-rap">Why we’re getting our data teams to RAP</a> by Alistair Bullward and Sam Hollings with NHS Digital :::</li>
+<li>documenting the code in-situ through comments and markdown files, to improve accessibility and understanding</li>
 </ul>
+<div class="footer">
+<p>From <a href="https://digital.nhs.uk/blog/data-points-blog/2023/why-were-getting-our-data-teams-to-rap">Why we’re getting our data teams to RAP</a> by Alistair Bullward and Sam Hollings with NHS Digital</p>
+</div>
 </section>
 
 <section id="thank-you" class="title-slide slide level2 center" data-number="12">
 <h2><span class="header-section-number">12</span> Thank you</h2>
-<p>Eli Pousson Baltimore City Department of Planning eli.pousson@baltimorecity.gov</p>
+<p>Eli Pousson</p>
+<p>Baltimore City Department of Planning</p>
+<p><a href="mailto:eli.pousson@baltimorecity.gov" class="email">eli.pousson@baltimorecity.gov</a></p>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 

@@ -91,11 +91,13 @@ Council in June of each year as the Capital Budget
 
 ## The questions people care about
 
-And here real questions that most people care about:
+Most people care about these questions:
   
   - How much money do we need? And how much do we have?
   - How much money have we spent?
   - How and where are we spending money?
+  
+We can't make things up and we want to get the answers right. We need to know where *all* the numbers come from.
   
 ::: notes
 Ultimate goal is more transparency, better integration with other city data management systems, and documented process for analysis and reporting of all elements of the capital planning and project implementation process.
@@ -120,7 +122,7 @@ Ultimate goal is more transparency, better integration with other city data mana
 ::::
 
 ::: footer
-The 507-page report includes 14 agencies, 444 projects, 229 maps, and around 900 tables.
+The [507-page report](https://city-of-baltimore.github.io/baltimoreCIP-FY2530) includes 14 agencies, 444 projects, 229 maps, and around 900 tables.
 :::
 
 ------------------------------------------------------------------------
@@ -143,6 +145,11 @@ The code used to produce the [latest version of the report](https://city-of-balt
 
 ::::
 
+::: footer
+
+P.S. Check out [tigris-basemap](https://github.com/elipousson/tigris-basemap) to see how the basemaps are made.
+:::
+
 
 ## Making reproducible, data-driven documents
 
@@ -155,7 +162,7 @@ Tools for doing things that you can't easily do with a desktop GIS application:
 ## R
 
 ::: columns
-::: {.column width="50%"}
+::: {.column width="60%"}
 
 The [tidyverse](https://www.tidyverse.org/) is essential. But ggplot2 and dplyr are not the only R packages! 
 
@@ -163,7 +170,7 @@ The new [arcgis package family](https://github.com/R-ArcGIS) is a set of ESRI-su
 
 :::
   
-::: {.column width="50%"}
+::: {.column width="40%"}
 ![](files/arcgis-logo.svg)
 :::
 :::
@@ -213,6 +220,14 @@ Artwork from ["Hello, Quarto"](https://mine.quarto.pub/hello-quarto/) keynote by
 ## Quarto extensions
 
 
+![](files/quarto-extensions.png)
+
+::: footer
+
+[Quarto extensions](https://quarto.org/docs/extensions/) are "a powerful way to modify and extend the behavior of Quarto." I learned (a little) LaTeX to write a custom format extension for this project!
+
+:::
+
 
 ------------------------------------------------------------------------
 
@@ -228,11 +243,24 @@ format:
 ```
 
 ## targets  
+
+
+::: columns
+  
+::: {.column width="60%"}
   
 `{targets}` is an R package (part of a family of related R packages) that works as a "build automation tool"
 
 Using targets is like "writing down a recipe that defines how the source code should be 'cooked' into... a report, a cleaned dataset or any data product" ([Rodrigues 2023](https://raps-with-r.dev/))
+
+:::
   
+::: {.column width="40%"}
+![](files/targets-logo.svg)
+  
+:::
+  
+:::
 ------------------------------------------------------------------------
 
 ![](files/2024-08-08_targets-glimpse.png)
@@ -253,9 +281,9 @@ From [Building reproducible analytical pipelines with R](https://raps-with-r.dev
 
 :::
 
-------------------------------------------------------------------------
-
 ## I ❤️ reproducible pipelines
+
+Why are reproducible analytical pipelines important?
 
 >In a nutshell, it is all about making our existing data processes more automated, reproducible, transparent, maintainable, efficient and robust. This improves the lives of our data analysts, as they ultimately have to do less manual work and can focus more on doing analysis.
 
@@ -270,13 +298,18 @@ From [Why we’re getting our data teams to RAP](https://digital.nhs.uk/blog/dat
 - peer reviewing code to improve quality and reliability 
 - using code version-control software (for example, Git) to improve auditability, change tracking and disaster recovery 
 - publishing the code externally to improve transparency and reuse 
-- documenting the code in-situ through comments and mark-down files, to improve accessibility and understanding 
+- documenting the code in-situ through comments and markdown files, to improve accessibility and understanding
+
 ::: footer
+
 From [Why we’re getting our data teams to RAP](https://digital.nhs.uk/blog/data-points-blog/2023/why-were-getting-our-data-teams-to-rap) by Alistair Bullward and Sam Hollings with NHS Digital
+
 :::
 
 ## Thank you
 
 Eli Pousson
+
 Baltimore City Department of Planning
-eli.pousson@baltimorecity.gov
+
+<eli.pousson@baltimorecity.gov>
