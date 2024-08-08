@@ -1,0 +1,282 @@
+---
+title: "Baltimore City's Capital Improvement Program Report"
+subtitle: "Making reproducible, data-driven documents with R, Quarto, and targets"
+date: 2024-08-07
+format:
+  clean-revealjs:
+    echo: false
+    message: false
+    # scrollable: true
+    center: false
+    progress: true
+    layout-valign: "top"
+    slide-level: 4
+    slide-number: true
+    number-sections: true
+    number-depth: 2
+    sc-sb-title: true
+execute: 
+  cache: false
+  echo: true
+  error: true
+---
+
+::: {layout="[62,-2,35]"}
+
+![](files/FY9095_Baltimore-Development-Program_Cover.jpeg)
+
+![](files/FY9095_Baltimore-Development-Program_Map-Folded.jpeg)
+:::
+
+
+::: footer
+Baltimore's Development Program, FY 1990-1995.
+:::
+
+::: notes
+
+Today, I'm talking about the Baltimore City Capital Improvement Report.
+
+Baltimore City has been making reports for the city's capital improvement program for a very long time.
+
+:::
+
+------------------------------------------------------------------------
+
+
+![](files/FY2429_CIP-Report_Table-Excerpt.png)
+
+::: footer
+
+Excerpt from FY24-29 CIP Report.
+
+:::
+
+::: notes
+
+Major cuts to the staffing of the Department's capital division around 2003.
+
+Database for manging capital projects with limited connections to the City's accounting systems.
+
+:::
+
+------------------------------------------------------------------------
+
+![](files/2024-07-24_Adaptive-Planning.png)
+
+::: footer
+
+Screenshot of Workday Adaptive Planning used for FY25-30 CIP Report.
+
+:::
+
+## The big questions
+
+- Can I use R to turn Adaptive Planning reports into a good-looking Capital Improvement Program report?
+- Can I update the report at each stage of the review process?
+- Can a report to make it easier to understand how and where Baltimore City invests capital funding?
+
+::: notes
+
+Answers: definitely yes, yes, and I sure hope so!
+
+:::
+
+## Requirements
+
+- The Baltimore City Charter *requires* the Baltimore City Planning Commission recommend a six-year Capital
+Improvement Program (CIP) to the Board of Estimates each year
+- The first year of this plan is adopted by the Baltimore City
+Council in June of each year as the Capital Budget
+
+## The questions people care about
+
+And here real questions that most people care about:
+  
+  - How much money do we need? And how much do we have?
+  - How much money have we spent?
+  - How and where are we spending money?
+  
+::: notes
+Ultimate goal is more transparency, better integration with other city data management systems, and documented process for analysis and reporting of all elements of the capital planning and project implementation process.
+:::
+  
+## The results
+
+:::: {.columns}
+
+::: {.column width='50%'}
+
+![](files/DOT-Overview_FY25-30_CIP-Ordinance-Report.png){fig-align=top}
+
+:::
+
+::: {.column width='50%'}
+
+![](files/BCRP-Overview_FY25-30_CIP-Ordinance-Report.png){fig-align=top}
+
+:::
+
+::::
+
+::: footer
+The 507-page report includes 14 agencies, 444 projects, 229 maps, and around 900 tables.
+:::
+
+------------------------------------------------------------------------
+
+:::: {.columns}
+
+::: {.column width='40%'}
+
+The document is made with free open-source tools: R, Quarto, and the targets R package.
+
+The code used to produce the [latest version of the report](https://city-of-baltimore.github.io/baltimoreCIP-FY2530/FY25-30_CIP-Ordinance-Report.pdf) is [now on the City of Baltimore GitHub](https://github.com/city-of-baltimore/baltimoreCIP-FY2530).
+
+:::
+
+::: {.column width='60%'}
+
+![](files/cip-report_projects-map.png)
+
+:::
+
+::::
+
+
+## Making reproducible, data-driven documents
+
+Tools for doing things that you can't easily do with a desktop GIS application:
+
+- **R** for data wrangling, mapping, tables, and more
+- **Quarto** for building reproducible, multi-format documents
+- **targets** for building reproducible analytical pipelines
+
+## R
+
+::: columns
+::: {.column width="50%"}
+
+The [tidyverse](https://www.tidyverse.org/) is essential. But ggplot2 and dplyr are not the only R packages! 
+
+The new [arcgis package family](https://github.com/R-ArcGIS) is a set of ESRI-supported, open-source R packages that can reading feature and image layers, publish and edit layers, geocode address data, and much more.
+
+:::
+  
+::: {.column width="50%"}
+![](files/arcgis-logo.svg)
+:::
+:::
+  
+------------------------------------------------------------------------
+
+```{r}
+#| echo: true
+
+baltimore_city <- arcgislayers::arc_read(
+  "https://services1.arcgis.com/UWYHeuuJISiGmgXx/arcgis/rest/services/Baltimore_City_Line_New/FeatureServer/0"
+)
+
+baltimore_city
+```
+
+## Quarto
+
+What is Quarto? A next-generation version of RMarkdown.
+
+Both Quarto and RMarkdown provide an "authoring framework for data science". You can use a single `Rmd` or `qmd` file to both:
+
+- save and execute code
+- generate high quality reports that can be shared with an audience
+
+::: footer
+Adapted from [R Markdown from RStudio](https://rmarkdown.rstudio.com/lesson-1.html)
+:::
+  
+------------------------------------------------------------------------
+  
+  
+![](files/allison-horst_rmarkdown-graphic.png)
+
+::: footer
+Illustrated by [Allison Horst](https://allisonhorst.com/).
+:::
+
+------------------------------------------------------------------------
+  
+![](files/cetinkaya-rundel-lowndes-quarto-keynote_schematic-graphic.png)
+
+::: footer
+Artwork from ["Hello, Quarto"](https://mine.quarto.pub/hello-quarto/) keynote by Julia Lowndes and Mine Çetinkaya-Rundel, presented at RStudio Conference 2022. Illustrated by [Allison Horst](https://allisonhorst.com/).
+:::
+
+## Quarto extensions
+
+
+
+------------------------------------------------------------------------
+
+
+The colors, fonts, and page layout for the CIP Report are all set using a custom Quarto extension (also available on the [City of Baltimore GitHub account](https://github.com/city-of-baltimore/quarto-templates/)).
+
+Using a custom format extension is done using the YAML front matter for the document or a custom YAML metadata file:
+
+```yml
+format:
+  dopPDF-pdf:
+    toc-depth: 2
+```
+
+## targets  
+  
+`{targets}` is an R package (part of a family of related R packages) that works as a "build automation tool"
+
+Using targets is like "writing down a recipe that defines how the source code should be 'cooked' into... a report, a cleaned dataset or any data product" ([Rodrigues 2023](https://raps-with-r.dev/))
+  
+------------------------------------------------------------------------
+
+![](files/2024-08-08_targets-glimpse.png)
+
+::: footer
+A quick visualization of the pipeline defined in the [_target.R script file](https://github.com/city-of-baltimore/baltimoreCIP-FY2530/blob/main/_targets.R) made with `targets::tar_glimpse()`.
+:::
+
+::: notes
+
+targets tracks:
+
+- any change in any of the code. Only the outputs that are affected by the changes you did will be re-computed (and their dependencies as well);
+- any change in any of the tracked files. For example, if a file gets updated daily, you can track this file and the build automation tool will only execute the parts of the pipeline affected by this update;
+- which parts of the pipeline can safely run in parallel (with the option to thus run the pipeline on multiple CPU cores)
+
+From [Building reproducible analytical pipelines with R](https://raps-with-r.dev/targets.html)
+
+:::
+
+------------------------------------------------------------------------
+
+## I ❤️ reproducible pipelines
+
+>In a nutshell, it is all about making our existing data processes more automated, reproducible, transparent, maintainable, efficient and robust. This improves the lives of our data analysts, as they ultimately have to do less manual work and can focus more on doing analysis.
+
+::: footer
+From [Why we’re getting our data teams to RAP](https://digital.nhs.uk/blog/data-points-blog/2023/why-were-getting-our-data-teams-to-rap) by Alistair Bullward and Sam Hollings with NHS Digital
+:::
+
+## What are the elements of reproducible pipelines?
+
+- minimising manual steps through automation 
+- using open-source languages to improve portability and reduce license fees 
+- peer reviewing code to improve quality and reliability 
+- using code version-control software (for example, Git) to improve auditability, change tracking and disaster recovery 
+- publishing the code externally to improve transparency and reuse 
+- documenting the code in-situ through comments and mark-down files, to improve accessibility and understanding 
+::: footer
+From [Why we’re getting our data teams to RAP](https://digital.nhs.uk/blog/data-points-blog/2023/why-were-getting-our-data-teams-to-rap) by Alistair Bullward and Sam Hollings with NHS Digital
+:::
+
+## Thank you
+
+Eli Pousson
+Baltimore City Department of Planning
+eli.pousson@baltimorecity.gov
